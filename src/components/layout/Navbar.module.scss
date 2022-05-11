@@ -1,0 +1,40 @@
+@import "../../assets/styles/shared.scss";
+
+.header {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  padding: 0 10%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $dark-blue;
+
+  .logo {
+    font-size: 2rem;
+    color: $white;
+  }
+
+  a {
+    text-decoration: none;
+    color: $blue;
+
+    &:hover,
+    &:active,
+    .active {
+      color: $light-blue;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-left: 1.5rem;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
