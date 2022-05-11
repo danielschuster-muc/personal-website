@@ -6,7 +6,9 @@ import classes from "./Footer.module.scss";
 const Footer = () => {
   return (
     <footer className={classes.footer}>
-      <h3>danielschuster.me</h3>
+      <h3>
+        <Link to="/">danielschuster.me</Link>
+      </h3>
       <div className={classes.container}>
         <div>
           <h3>Information</h3>
@@ -58,9 +60,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className={classes.sub}>
-        <h4>© {new Date().getFullYear()} Daniel Schuster</h4>
-      </div>
+      <h4>© {new Date().getFullYear()} Daniel Schuster</h4>
     </footer>
   );
 };
