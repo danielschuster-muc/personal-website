@@ -14,3 +14,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
 }
+
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -40,22 +40,10 @@ const Footer = () => {
           <h3>Socials</h3>
           <ul>
             <li>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/danielschuster-muc"
-              >
-                Github
-              </a>
+              <Link to="/github">Github</Link>
             </li>
             <li>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.linkedin.com/in/danielschuster-muc/"
-              >
-                LinkedIn
-              </a>
+              <Link to="/linkedin">LinkedIn</Link>
             </li>
           </ul>
         </div>
