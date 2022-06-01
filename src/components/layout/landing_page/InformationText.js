@@ -5,7 +5,7 @@ const InformationText = () => {
   return (
     <Box id="landing-page-information-text" py={{ xs: 2, sm: 5 }}>
       <Card>
-        <Box p={3}>
+        <Box px={3}>
           <p>
             Nisi enim do Lorem magna ipsum aliqua mollit eu proident ipsum
             consectetur veniam commodo. Tempor dolore dolore dolore mollit ea ut

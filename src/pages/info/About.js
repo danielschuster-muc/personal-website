@@ -4,7 +4,7 @@ const About = () => {
   return (
     <Box id="landing-page-information-text" py={{ xs: 2, sm: 5 }}>
       <Card>
-        <Box p={3}>
+        <Box px={3}>
           <h1>About</h1>
           <p>
             Nisi enim do Lorem magna ipsum aliqua mollit eu proident ipsum

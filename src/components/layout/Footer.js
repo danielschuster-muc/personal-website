@@ -19,7 +19,7 @@ const Footer = () => {
                 <Link to="/about">About me</Link>
               </Box>
               <Box>
-                <Link to="/legal-notice">Legal Notice</Link>
+                <Link to="/imprint">Imprint</Link>
               </Box>
             </Grid>
 

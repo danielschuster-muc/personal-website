@@ -15,19 +15,19 @@ const TypeWriterEffect = () => {
           }}
           onInit={(typewriter) => {
             typewriter
-              .pauseFor(1000)
+              .pauseFor(500)
               .typeString("Hello World!")
               .pauseFor(2500)
               .deleteAll()
-              .typeString("My Name is Daniel.")
-              .pauseFor(2500)
+              .typeString("My name is Daniel.")
+              .pauseFor(5000)
               .start();
           }}
         />
       </Typography>
       <Scroll to="landing-page-information-text" smooth={true}>
-        <IconButton>
-          <ExpandMoreIcon variant="h3" color="primary" />
+        <IconButton size="large">
+          <ExpandMoreIcon color="primary" fontSize="large" />
         </IconButton>
       </Scroll>
     </div>

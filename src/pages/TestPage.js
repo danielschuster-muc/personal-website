@@ -13,8 +13,6 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-// import { makeStyles } from "@mui/styles";
-
 const useStyles = makeStyles({
   root: {
     background: "linear-gradient(45deg, #FE6B8B, #FF8E53)",
