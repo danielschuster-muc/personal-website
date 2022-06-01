@@ -1,54 +1,67 @@
-import React from "react";
 import { Link } from "react-router-dom";
+
+import { Grid } from "@mui/material";
+import { Box, Container } from "@mui/system";
 
 import classes from "./Footer.module.scss";
 
 const Footer = () => {
   return (
     <footer className={classes.footer}>
-      <h3>
-        <Link to="/">danielschuster.me</Link>
-      </h3>
-      <div className={classes.container}>
-        <div>
-          <h3>Information</h3>
-          <ul>
-            <li>
-              <Link to="/about">About me</Link>
-            </li>
-            <li>
-              <Link to="/legal-notice">Legal Notice</Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Projects</h3>
-          <ul>
-            <li>
-              <a target="_blank" rel="noreferrer" href="https://www.google.com">
-                Project 1
-              </a>
-            </li>
-            <li>
-              <a target="_blank" rel="noreferrer" href="https://www.google.com">
-                Project 2
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Socials</h3>
-          <ul>
-            <li>
-              <Link to="/github">Github</Link>
-            </li>
-            <li>
-              <Link to="/linkedin">LinkedIn</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <h4>© {new Date().getFullYear()} Daniel Schuster</h4>
+      <Box px={{ xs: 3, sm: 10 }} py={{ xs: 1, sm: 5 }}>
+        <Container maxWidth="xl">
+          <Grid container spacing={10}>
+            <Grid item xs={12} sm={4}>
+              <Box component="h3" borderBottom={1}>
+                Information
+              </Box>
+              <Box>
+                <Link to="/about">About me</Link>
+              </Box>
+              <Box>
+                <Link to="/legal-notice">Legal Notice</Link>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <Box component="h3" borderBottom={1}>
+                Projects
+              </Box>
+              <Box>
+                <Link
+                  to={{ pathname: "https://www.google.com" }}
+                  target="_blank"
+                >
+                  Project 1
+                </Link>
+              </Box>
+              <Box>
+                <Link
+                  to={{ pathname: "https://www.google.com" }}
+                  target="_blank"
+                >
+                  Project 2
+                </Link>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <Box component="h3" borderBottom={1}>
+                Socials
+              </Box>
+              <Box>
+                <Link to="/github">Github</Link>
+              </Box>
+              <Box>
+                <Link to="/linkedin">LinkedIn</Link>
+              </Box>
+            </Grid>
+          </Grid>
+          <Box textAlign="center" pt={{ xs: 2, sm: 5 }} pb={{ xs: 5, sm: 0 }}>
+            Copyright &copy; {new Date().getFullYear()} Daniel Schuster
+          </Box>
+        </Container>
+      </Box>
     </footer>
   );
 };

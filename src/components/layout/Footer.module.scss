@@ -1,37 +1,18 @@
 @import "../../assets/styles/shared.scss";
 
 .footer {
-  color: $white;
-  width: 100%;
-  background-color: $dark-blue;
   margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   a {
-    text-decoration: none;
-    color: $blue;
+    text-decoration: inherit;
+    color: rgba(0, 0, 0, 0.87);
 
     &:hover, &:active, .active {
-      color: $light-blue;
-    }
-  }
-
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    div {
-      margin: 0 5rem;
-
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
+      color: rgba(54, 54, 54, 0.718)
     }
   }
 }

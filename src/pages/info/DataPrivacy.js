@@ -1,7 +1,7 @@
-import React from "react";
+import { Card } from "@mui/material";
 
 const DataPrivacy = () => {
-  return <div>DataPrivacy</div>;
+  return <Card>DataPrivacy</Card>;
 };
 
 export default DataPrivacy;

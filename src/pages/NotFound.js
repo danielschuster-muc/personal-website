@@ -1,11 +1,11 @@
-import React from "react";
-
-import Card from "../components/ui/Card";
+import { Box, Card } from "@mui/material";
 
 const NotFound = () => {
   return (
     <Card>
-      <h1>Page not found!</h1>
+      <Box p={3}>
+        <h1>Page not found!</h1>
+      </Box>
     </Card>
   );
 };

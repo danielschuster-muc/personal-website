@@ -1,7 +1,7 @@
-import React from "react";
+import { Card } from "@mui/material";
 
 const Cookies = () => {
-  return <div>Cookies</div>;
+  return <Card>Cookies</Card>;
 };
 
 export default Cookies;
