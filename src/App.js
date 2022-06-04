@@ -9,7 +9,6 @@ import Layout from "./components/layout/Layout";
 import ExternalRedirect from "./pages/ExternalRedirect";
 import LandingPage from "./pages/LandingPage";
 
-const About = lazy(() => import("./pages/info/About"));
 const Imprint = lazy(() => import("./pages/info/Imprint"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -34,7 +33,6 @@ const App = () => {
         >
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/about" element={<About />} />
             <Route path="/imprint" element={<Imprint />} />
 
             {/* <Route path="/test" element={<TestPage />} /> */}

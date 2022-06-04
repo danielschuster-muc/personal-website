@@ -25,7 +25,7 @@ const TypeWriterEffect = () => {
           }}
         />
       </Typography>
-      <Scroll to="landing-page-information-text" smooth={true}>
+      <Scroll to="about-section" smooth={true}>
         <IconButton size="large">
           <ExpandMoreIcon color="primary" fontSize="large" />
         </IconButton>

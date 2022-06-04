@@ -1,11 +1,11 @@
-import InformationText from "../components/layout/landing_page/InformationText";
+import InformationCard from "../components/layout/landing_page/InformationCard";
 import TypeWriterEffect from "../components/layout/landing_page/TypeWriterEffect";
 
 const LandingPage = () => {
   return (
     <>
       <TypeWriterEffect />
-      <InformationText />
+      <InformationCard />
     </>
   );
 };

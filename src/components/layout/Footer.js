@@ -16,7 +16,7 @@ const Footer = () => {
                 Information
               </Box>
               <Box>
-                <Link to="/about">About me</Link>
+                <Link to="/">Home</Link>
               </Box>
               <Box>
                 <Link to="/imprint">Imprint</Link>
