@@ -1,6 +1,7 @@
-import { FormatQuote } from "@mui/icons-material";
-import { Avatar, Card, Grid, Typography } from "@mui/material";
+import { FormatQuote, GitHub, LinkedIn } from "@mui/icons-material";
+import { Avatar, Card, Grid, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 
 import classes from "./InformationCard.module.scss";
 
@@ -26,17 +27,35 @@ const InformationCard = () => {
                 </Box>
                 <Typography variant="h5">Daniel Schuster</Typography>
                 <Typography variant="subtitle1">Web Developer</Typography>
+                <Grid container alignItems="center" justifyContent="center">
+                  <Grid item>
+                    <Link to="/linkedin">
+                      <IconButton>
+                        <LinkedIn />
+                      </IconButton>
+                    </Link>
+                  </Grid>
+                  <Grid item>
+                    <Link to="/github">
+                      <IconButton>
+                        <GitHub />
+                      </IconButton>
+                    </Link>
+                  </Grid>
+                </Grid>
               </Box>
               <Box pb={5}>
-                <Grid container spacing={1} mx={5}>
-                  <Grid item xs={4}>
+                <Grid container justifyContent="center" spacing={10}>
+                  <Grid item>
                     <Box sx={{ textTransform: "uppercase" }}>
                       <Typography color="gray">Age</Typography>
+                      <Typography color="gray">Occupation</Typography>
                       <Typography color="gray">Location</Typography>
                     </Box>
                   </Grid>
                   <Grid item>
                     <Typography>19</Typography>
+                    <Typography>Student</Typography>
                     <Typography>Munich, Germany</Typography>
                   </Grid>
                 </Grid>
@@ -64,7 +83,9 @@ const InformationCard = () => {
 
         <Grid item xs={12} md={8}>
           <Card>
-            <p>About me</p>
+            <Box p={3}>
+              <Typography variant="h6">About me</Typography>
+            </Box>
           </Card>
         </Grid>
       </Grid>
