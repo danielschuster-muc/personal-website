@@ -35,8 +35,6 @@ const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/imprint" element={<Imprint />} />
 
-            {/* <Route path="/test" element={<TestPage />} /> */}
-
             <Route
               path="/github"
               element={

@@ -5,7 +5,11 @@ const ExternalRedirect = (props) => {
   const { link } = props;
   useEffect(() => window.location.replace(link), [link]);
 
-  return <CircularProgress className="centered" color="secondary" />;
+  return (
+    <div className="centered-horizontal">
+      <CircularProgress color="secondary" />
+    </div>
+  );
 };
 
 export default ExternalRedirect;

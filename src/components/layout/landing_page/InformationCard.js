@@ -14,7 +14,7 @@ const InformationCard = () => {
       className={classes.card}
     >
       <Grid container spacing={2} px={{ xs: 2, sm: 5 }}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={12}>
           <Card>
             <Box px={3} className={classes.infobox}>
               <Box className={classes.heading} py={5}>
@@ -81,13 +81,13 @@ const InformationCard = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={8}>
+        {/* <Grid item xs={12} md={8}>
           <Card>
             <Box p={3}>
               <Typography variant="h6">About me</Typography>
             </Box>
           </Card>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Box>
   );
