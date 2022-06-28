@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-
 import { Grid } from "@mui/material";
 import { Box, Container } from "@mui/system";
+import Link from "next/link";
 
 import classes from "./Footer.module.scss";
 
@@ -16,10 +15,10 @@ const Footer = () => {
                 Information
               </Box>
               <Box>
-                <Link to="/">Home</Link>
+                <Link href="/">Home</Link>
               </Box>
               <Box>
-                <Link to="/imprint">Imprint</Link>
+                <Link href="/legal-notice">Legal Notice</Link>
               </Box>
             </Grid>
 
@@ -28,18 +27,12 @@ const Footer = () => {
                 Projects
               </Box>
               <Box>
-                <Link
-                  to={{ pathname: "https://www.google.com" }}
-                  target="_blank"
-                >
+                <Link href="https://www.google.com" target="_blank">
                   Project 1
                 </Link>
               </Box>
               <Box>
-                <Link
-                  to={{ pathname: "https://www.google.com" }}
-                  target="_blank"
-                >
+                <Link href="https://www.google.com" target="_blank">
                   Project 2
                 </Link>
               </Box>
@@ -50,15 +43,19 @@ const Footer = () => {
                 Socials
               </Box>
               <Box>
-                <Link to="/github">Github</Link>
+                <Link href="/github">Github</Link>
               </Box>
               <Box>
-                <Link to="/linkedin">LinkedIn</Link>
+                <Link href="/linkedin">LinkedIn</Link>
               </Box>
             </Grid>
           </Grid>
           <Box textAlign="center" pt={{ xs: 2, sm: 5 }} pb={{ xs: 5, sm: 0 }}>
-            Copyright &copy; {new Date().getFullYear()} Daniel Schuster
+            Copyright &copy;{" "}
+            <Link color="inherit" href="/">
+              Daniel Schuster
+            </Link>{" "}
+            {new Date().getFullYear()}
           </Box>
         </Container>
       </Box>
