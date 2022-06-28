@@ -1,4 +1,5 @@
 import { Box, Card } from "@mui/material";
+import Link from "next/link";
 import Meta from "../../components/Meta";
 
 const LegalNotice = () => {
@@ -6,14 +7,17 @@ const LegalNotice = () => {
     <>
       <Meta
         title="Legal Notice"
-        description="The TMG requires German websites to give information about the publisher of a website"
+        description="The TMG requires German websites to give information about the publisher of a website."
       />
       <Card>
         <Box px={3}>
           <h1>Impressum</h1>
           <h4>
             The TMG requires German websites to give information about the
-            publisher of a website
+            publisher of a website. Further information:{" "}
+            <Link href="https://www.gesetze-im-internet.de/tmg/__5.html">
+              https://www.gesetze-im-internet.de/tmg/__5.html
+            </Link>
           </h4>
           <h2>Angaben gemäß § 5 TMG</h2>
           <div>
