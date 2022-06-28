@@ -1,5 +1,5 @@
 import React from "react";
-import ExternalRedirect from "../../components/layout/links/ExternalRedirect";
+import ExternalRedirect from "../../components/links/ExternalRedirect";
 
 const index = () => {
   return (
