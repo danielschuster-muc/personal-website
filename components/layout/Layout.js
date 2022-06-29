@@ -4,60 +4,77 @@ import Footer from "./footer/Footer";
 import classes from "./Layout.module.scss";
 import Navbar from "./navbar/Navbar";
 
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { useEffect, useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useEffect, useMemo, useState } from "react";
 
-const darkTheme = createTheme({
-  palette: {
-    type: "dark",
-    primary: {
-      main: "#26a27b",
-    },
-    secondary: {
-      main: "#fafafa",
-    },
-  },
-});
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: "dark",
+//     primary: {
+//       main: "#26a27b",
+//     },
+//     secondary: {
+//       main: "#fafafa",
+//     },
+//   },
+// });
 
-const lightTheme = createTheme({
-  palette: {
-    type: "light",
-    primary: {
-      main: "#fafafa",
-    },
-    secondary: {
-      main: "#26a27b",
-    },
-  },
-});
+// const lightTheme = createTheme({
+//   palette: {
+//     mode: "light",
+//     primary: {
+//       main: "#fafafa",
+//     },
+//     secondary: {
+//       main: "#26a27b",
+//     },
+//   },
+// });
 
 const Layout = (props) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [darkMode, setDarkMode] = useState(prefersDarkMode);
+  const [mode, setMode] = useState("system");
+
+  const theme = useMemo(() => {
+    let themeMode = "dark";
+    if (mode === "system") {
+      themeMode = prefersDarkMode ? "dark" : "light";
+    } else if (mode === "light") {
+      themeMode = mode;
+    }
+
+    return createTheme({
+      palette: {
+        mode: themeMode,
+        primary: {
+          main: "#5c6bc0",
+        },
+        secondary: {
+          main: "#1976d2",
+        },
+      },
+    });
+  }, [mode, prefersDarkMode]);
 
   useEffect(() => {
-    const theme = localStorage.getItem("theme");
-    if (theme) {
-      setDarkMode(theme === "dark");
+    const storedMode = localStorage.getItem("mode");
+    if (storedMode) {
+      setMode(storedMode);
     } else {
-      localStorage.setItem("theme", !prefersDarkMode ? "light" : "dark");
+      localStorage.setItem("mode", mode);
     }
   }, []);
 
-  const toggleDarkModeHandler = () => {
-    localStorage.setItem("theme", darkMode ? "light" : "dark");
-    setDarkMode((prevMode) => !prevMode);
+  const setModeHandler = (mode) => {
+    setMode(mode);
   };
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={classes.pageContainer}>
         <Box className={classes.content}>
-          <Navbar
-            isDarkMode={darkMode}
-            toggleDarkMode={toggleDarkModeHandler}
-          />
+          <Navbar mode={mode} onSetMode={setModeHandler} />
           <Container component="main" maxWidth="xl">
             {props.children}
           </Container>
