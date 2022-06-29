@@ -7,30 +7,6 @@ import Navbar from "./navbar/Navbar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useMemo, useState } from "react";
 
-// const darkTheme = createTheme({
-//   palette: {
-//     mode: "dark",
-//     primary: {
-//       main: "#26a27b",
-//     },
-//     secondary: {
-//       main: "#fafafa",
-//     },
-//   },
-// });
-
-// const lightTheme = createTheme({
-//   palette: {
-//     mode: "light",
-//     primary: {
-//       main: "#fafafa",
-//     },
-//     secondary: {
-//       main: "#26a27b",
-//     },
-//   },
-// });
-
 const Layout = (props) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [mode, setMode] = useState("system");
