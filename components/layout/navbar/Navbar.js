@@ -27,7 +27,6 @@ const Navbar = (props) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    console.log("clicked toggle");
     setMobileOpen((prevState) => !prevState);
   };
 
@@ -39,7 +38,10 @@ const Navbar = (props) => {
         </Typography>
         <IconButton
           sx={{ ml: 1 }}
-          onClick={props.toggleDarkMode}
+          onClick={props.toggleColorMode}
+          aria-label={
+            props.isDarkMode ? "switch to light mode" : "switch to dark mode"
+          }
           color="inherit"
         >
           {props.isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
