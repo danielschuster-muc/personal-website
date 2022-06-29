@@ -9,28 +9,24 @@ import { useEffect, useState } from "react";
 
 const darkTheme = createTheme({
   palette: {
-    background: {
-      default: "#232627",
-    },
+    type: "dark",
     primary: {
-      main: "#212121",
+      main: "#26a27b",
     },
     secondary: {
-      main: "#90a4ae",
+      main: "#fafafa",
     },
   },
 });
 
 const lightTheme = createTheme({
   palette: {
-    background: {
-      default: "#e1f5fe",
-    },
+    type: "light",
     primary: {
-      main: "#e1f5fe",
+      main: "#fafafa",
     },
     secondary: {
-      main: "#FCFCFB",
+      main: "#26a27b",
     },
   },
 });
@@ -39,30 +35,19 @@ const Layout = (props) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [darkMode, setDarkMode] = useState(prefersDarkMode);
 
-  // const [colorMode, setColorMode] = useState(
-  //   !prefersDarkMode ? "light" : "dark"
-  // );
-
-  // const toggleColorModeHandler = () => {
-  //   localStorage.setItem("colorMode", colorMode === "dark" ? "light" : "dark");
-  //   setColorMode((prevState) => (prevState === "dark" ? "light" : "dark"));
-  // };
-
-  const toggleDarkModeHandler = () => {
-    localStorage.setItem("darkMode", !darkMode);
-    setDarkMode((prevMode) => !prevMode);
-  };
-
   useEffect(() => {
-    if (localStorage.getItem("darkMode")) {
-      setDarkMode(localStorage.getItem("darkMode"));
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      setDarkMode(theme === "dark");
+    } else {
+      localStorage.setItem("theme", !prefersDarkMode ? "light" : "dark");
     }
   }, []);
 
-  useEffect(() => {
-    setDarkMode(prefersDarkMode);
-    localStorage.setItem("darkMode", darkMode);
-  }, [prefersDarkMode]);
+  const toggleDarkModeHandler = () => {
+    localStorage.setItem("theme", darkMode ? "light" : "dark");
+    setDarkMode((prevMode) => !prevMode);
+  };
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
@@ -72,7 +57,6 @@ const Layout = (props) => {
           <Navbar
             isDarkMode={darkMode}
             toggleDarkMode={toggleDarkModeHandler}
-            // toggleColorMode={toggleColorModeHandler}
           />
           <Container component="main" maxWidth="xl">
             {props.children}
