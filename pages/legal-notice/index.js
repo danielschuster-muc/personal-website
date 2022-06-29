@@ -1,4 +1,4 @@
-import { Box, Card } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import Link from "next/link";
 import Meta from "../../components/Meta";
 
@@ -11,25 +11,28 @@ const LegalNotice = () => {
       />
       <Card>
         <Box px={3}>
-          <h1>Impressum</h1>
-          <h4>
+          <Typography variant="h4">Impressum</Typography>
+          <Typography variant="subtitle1">
             The TMG requires German websites to give information about the
             publisher of a website. Further information:{" "}
             <Link href="https://www.gesetze-im-internet.de/tmg/__5.html">
               https://www.gesetze-im-internet.de/tmg/__5.html
             </Link>
-          </h4>
-          <h2>Angaben gemäß § 5 TMG</h2>
+          </Typography>
+
+          <Typography variant="h5">Angaben gemäß § 5 TMG</Typography>
           <div>
-            <p>Daniel Schuster</p>
-            <p>Felix-Fechenbach-Bogen 49</p>
-            <p>80797 München</p>
-            <p>Deutschland</p>
+            <Typography variant="body1">Daniel Schuster</Typography>
+            <Typography variant="body1">Felix-Fechenbach-Bogen 49</Typography>
+            <Typography variant="body1">80797 München</Typography>
+            <Typography variant="body1">Deutschland</Typography>
           </div>
-          <h2>Kontakt</h2>
+          <Typography variant="h5">Kontakt</Typography>
           <div>
-            <p>Telefon: +49 160 1241748</p>
-            <p>E-Mail: daniel.a.schuster@t-online.de</p>
+            <Typography variant="body1">Telefon: +49 160 1241748</Typography>
+            <Typography variant="body1">
+              E-Mail: daniel.a.schuster@t-online.de
+            </Typography>
           </div>
         </Box>
       </Card>

@@ -11,10 +11,9 @@ import {
   Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import DrawerComponent from "./DrawerComponent";
+import ThemeSelector from "./ThemeSelector";
 
 const navItems = [
   { title: "Home", link: "/" },
@@ -27,8 +26,11 @@ const Navbar = (props) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    console.log("clicked toggle");
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleSelectTheme = (event) => {
+    props.onSetMode(event.target.value);
   };
 
   return (
@@ -37,16 +39,13 @@ const Navbar = (props) => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/">Daniel Schuster</Link>
         </Typography>
-        <IconButton
-          sx={{ ml: 1 }}
-          onClick={props.toggleDarkMode}
-          color="inherit"
-        >
-          {props.isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+        <ThemeSelector
+          handleSelectTheme={handleSelectTheme}
+          mode={props.mode}
+        />
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           {navItems.map((item) => (
-            <Button key={item.title} sx={{ color: "#fff" }}>
+            <Button key={item.title} color="inherit">
               <Link href={item.link}>{item.title}</Link>
             </Button>
           ))}

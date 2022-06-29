@@ -1,50 +1,56 @@
-import { Box, Container, CssBaseline } from "@mui/material";
-import Footer from "./Footer";
+import { Box, Container, CssBaseline, useMediaQuery } from "@mui/material";
+import Footer from "./footer/Footer";
 
 import classes from "./Layout.module.scss";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { useState } from "react";
-
-const darkTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#212121",
-    },
-    secondary: {
-      main: "#90a4ae",
-    },
-  },
-});
-
-const lightTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#64b5f6",
-    },
-    secondary: {
-      main: "#eceff1",
-    },
-  },
-});
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useEffect, useMemo, useState } from "react";
 
 const Layout = (props) => {
-  const [darkMode, setDarkMode] = useState(true);
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [mode, setMode] = useState("system");
 
-  const toggleDarkModeHandler = () => {
-    setDarkMode((prevState) => !prevState);
+  const theme = useMemo(() => {
+    let themeMode = "dark";
+    if (mode === "system") {
+      themeMode = prefersDarkMode ? "dark" : "light";
+    } else if (mode === "light") {
+      themeMode = mode;
+    }
+
+    return createTheme({
+      palette: {
+        mode: themeMode,
+        primary: {
+          main: "#5c6bc0",
+        },
+        secondary: {
+          main: "#1976d2",
+        },
+      },
+    });
+  }, [mode, prefersDarkMode]);
+
+  useEffect(() => {
+    const storedMode = localStorage.getItem("mode");
+    if (storedMode) {
+      setMode(storedMode);
+    } else {
+      localStorage.setItem("mode", mode);
+    }
+  }, []);
+
+  const setModeHandler = (mode) => {
+    setMode(mode);
   };
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={classes.pageContainer}>
         <Box className={classes.content}>
-          <Navbar
-            isDarkMode={darkMode}
-            toggleDarkMode={toggleDarkModeHandler}
-          />
+          <Navbar mode={mode} onSetMode={setModeHandler} />
           <Container component="main" maxWidth="xl">
             {props.children}
           </Container>
