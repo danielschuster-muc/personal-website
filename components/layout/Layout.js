@@ -1,11 +1,10 @@
-import { Box, Container, CssBaseline, useMediaQuery } from "@mui/material";
-import Footer from "./footer/Footer";
-
-import classes from "./Layout.module.scss";
-import Navbar from "./navbar/Navbar";
-
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useMemo, useState } from "react";
+
+import { Box, Container, CssBaseline, useMediaQuery } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+import Navbar from "./navbar/Navbar";
+import Footer from "./footer/Footer";
 
 const Layout = (props) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -23,7 +22,7 @@ const Layout = (props) => {
       palette: {
         mode: themeMode,
         primary: {
-          main: "#5c6bc0",
+          main: "#f9a825",
         },
         secondary: {
           main: "#1976d2",
@@ -48,15 +47,15 @@ const Layout = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className={classes.pageContainer}>
-        <Box className={classes.content}>
-          <Navbar mode={mode} onSetMode={setModeHandler} />
-          <Container component="main" maxWidth="xl">
-            {props.children}
-          </Container>
-        </Box>
-        <Footer />
-      </div>
+      <Box
+        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      >
+        <Navbar />
+        <Container component="main" maxWidth="xl" sx={{ flex: 1, mt: 3 }}>
+          {props.children}
+        </Container>
+        <Footer mode={mode} onSetMode={setModeHandler} />
+      </Box>
     </ThemeProvider>
   );
 };

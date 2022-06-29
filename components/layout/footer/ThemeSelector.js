@@ -11,9 +11,9 @@ const ThemeSelector = (props) => {
         onChange={props.handleSelectTheme}
         value={props.mode}
       >
-        <MenuItem value={"light"}>Light Mode</MenuItem>
-        <MenuItem value={"dark"}>Dark Mode</MenuItem>
-        <MenuItem value={"system"}>System Preferences</MenuItem>
+        <MenuItem value="light">Light Mode</MenuItem>
+        <MenuItem value="dark">Dark Mode</MenuItem>
+        <MenuItem value="system">System Preferences</MenuItem>
       </Select>
     </FormControl>
   );

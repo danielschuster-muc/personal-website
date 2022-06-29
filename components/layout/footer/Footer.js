@@ -1,65 +1,88 @@
-import { Grid } from "@mui/material";
+import { Grid, AppBar, Toolbar, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import Link from "next/link";
+import ThemeSelector from "./ThemeSelector";
 
-import classes from "./Footer.module.scss";
+const footerData = [
+  {
+    title: "Information",
+    content: [
+      {
+        name: "Home",
+        url: "/",
+      },
+      {
+        name: "Legal Notice",
+        url: "/legal-notice",
+      },
+    ],
+  },
+  {
+    title: "Projects",
+    content: [
+      {
+        name: "Project 1",
+        url: "/",
+      },
+      {
+        name: "Project 2",
+        url: "/",
+      },
+    ],
+  },
+  {
+    title: "Socials",
+    content: [
+      {
+        name: "GitHub",
+        url: "/github",
+      },
+      {
+        name: "LinkedIn",
+        url: "/linkedin",
+      },
+    ],
+  },
+];
 
-const Footer = () => {
+const Footer = (props) => {
+  const handleSelectTheme = (event) => {
+    props.onSetMode(event.target.value);
+  };
+
   return (
-    <footer className={classes.footer}>
-      <Box px={{ xs: 3, sm: 10 }} py={{ xs: 1, sm: 5 }}>
+    <AppBar position="static" component="footer" color="default">
+      <Toolbar sx={{ my: 3 }}>
         <Container maxWidth="xl">
-          <Grid container spacing={10}>
-            <Grid item xs={12} sm={4}>
-              <Box component="h3" borderBottom={1}>
-                Information
-              </Box>
-              <Box>
-                <Link href="/">Home</Link>
-              </Box>
-              <Box>
-                <Link href="/legal-notice">Legal Notice</Link>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} sm={4}>
-              <Box component="h3" borderBottom={1}>
-                Projects
-              </Box>
-              <Box>
-                <Link href="https://www.google.com" target="_blank">
-                  Project 1
-                </Link>
-              </Box>
-              <Box>
-                <Link href="https://www.google.com" target="_blank">
-                  Project 2
-                </Link>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} sm={4}>
-              <Box component="h3" borderBottom={1}>
-                Socials
-              </Box>
-              <Box>
-                <Link href="/github">Github</Link>
-              </Box>
-              <Box>
-                <Link href="/linkedin">LinkedIn</Link>
-              </Box>
-            </Grid>
+          <Grid container borderBottom={1}>
+            {footerData.map((row) => (
+              <Grid item key={row.title} xs={12} sm={4}>
+                <Typography variant="h5">{row.title}</Typography>
+                {row.content.map((column) => (
+                  <Box key={column.name}>
+                    <Link href={column.url}>{column.name}</Link>
+                  </Box>
+                ))}
+              </Grid>
+            ))}
           </Grid>
-          <Box textAlign="center" pt={{ xs: 2, sm: 5 }} pb={{ xs: 5, sm: 0 }}>
-            Copyright &copy;{" "}
-            <Link color="inherit" href="/">
-              Daniel Schuster
-            </Link>{" "}
-            {new Date().getFullYear()}
+
+          <Box style={{ textAlign: "center" }} mt={{ xs: 2, sm: 2 }}>
+            <ThemeSelector
+              handleSelectTheme={handleSelectTheme}
+              mode={props.mode}
+            />
+            <Box>
+              Copyright &copy;{" "}
+              <Link color="inherit" href="/">
+                Daniel Schuster
+              </Link>{" "}
+              {new Date().getFullYear()}
+            </Box>
           </Box>
         </Container>
-      </Box>
-    </footer>
+      </Toolbar>
+    </AppBar>
   );
 };
 

@@ -13,7 +13,6 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import DrawerComponent from "./DrawerComponent";
-import ThemeSelector from "./ThemeSelector";
 
 const navItems = [
   { title: "Home", link: "/" },
@@ -29,20 +28,12 @@ const Navbar = (props) => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const handleSelectTheme = (event) => {
-    props.onSetMode(event.target.value);
-  };
-
   return (
     <AppBar component="nav" position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/">Daniel Schuster</Link>
         </Typography>
-        <ThemeSelector
-          handleSelectTheme={handleSelectTheme}
-          mode={props.mode}
-        />
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           {navItems.map((item) => (
             <Button key={item.title} color="inherit">
