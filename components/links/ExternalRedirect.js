@@ -1,5 +1,7 @@
-import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
+
+import { Box, Typography } from "@mui/material";
+
 import Meta from "../Meta";
 
 const ExternalRedirect = (props) => {

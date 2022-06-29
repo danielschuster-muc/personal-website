@@ -7,7 +7,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Divider,
 } from "@mui/material";
 import ChevronRight from "@mui/icons-material/ChevronRight";
 
