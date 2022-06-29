@@ -38,7 +38,8 @@ const Navbar = (props) => {
         </Typography>
         <IconButton
           sx={{ ml: 1 }}
-          onClick={props.toggleColorMode}
+          // onClick={props.toggleColorMode}
+          onClick={props.toggleDarkMode}
           aria-label={
             props.isDarkMode ? "switch to light mode" : "switch to dark mode"
           }

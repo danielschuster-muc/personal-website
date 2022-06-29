@@ -37,30 +37,42 @@ const lightTheme = createTheme({
 
 const Layout = (props) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [darkMode, setDarkMode] = useState(prefersDarkMode);
 
-  const [colorMode, setColorMode] = useState(
-    !prefersDarkMode ? "light" : "dark"
-  );
+  // const [colorMode, setColorMode] = useState(
+  //   !prefersDarkMode ? "light" : "dark"
+  // );
 
-  const toggleColorModeHandler = () => {
-    localStorage.setItem("colorMode", colorMode === "dark" ? "light" : "dark");
-    setColorMode((prevState) => (prevState === "dark" ? "light" : "dark"));
+  // const toggleColorModeHandler = () => {
+  //   localStorage.setItem("colorMode", colorMode === "dark" ? "light" : "dark");
+  //   setColorMode((prevState) => (prevState === "dark" ? "light" : "dark"));
+  // };
+
+  const toggleDarkModeHandler = () => {
+    localStorage.setItem("darkMode", !darkMode);
+    setDarkMode((prevMode) => !prevMode);
   };
 
   useEffect(() => {
-    if (localStorage.getItem("colorMode")) {
-      setColorMode(localStorage.getItem("colorMode"));
+    if (localStorage.getItem("darkMode")) {
+      setDarkMode(localStorage.getItem("darkMode"));
     }
   }, []);
 
+  useEffect(() => {
+    setDarkMode(prefersDarkMode);
+    localStorage.setItem("darkMode", darkMode);
+  }, [prefersDarkMode]);
+
   return (
-    <ThemeProvider theme={colorMode === "dark" ? darkTheme : lightTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <div className={classes.pageContainer}>
         <Box className={classes.content}>
           <Navbar
-            isDarkMode={colorMode === "dark"}
-            toggleColorMode={toggleColorModeHandler}
+            isDarkMode={darkMode}
+            toggleDarkMode={toggleDarkModeHandler}
+            // toggleColorMode={toggleColorModeHandler}
           />
           <Container component="main" maxWidth="xl">
             {props.children}
