@@ -48,8 +48,8 @@ const footerData = [
 ];
 
 const Footer = (props) => {
-  const handleSelectTheme = (event) => {
-    props.onSetMode(event.target.value);
+  const handleSetMode = (mode) => {
+    props.onSetMode(mode);
   };
 
   return (
@@ -70,10 +70,7 @@ const Footer = (props) => {
           </Grid>
 
           <Box style={{ textAlign: "center" }} mt={{ xs: 2, sm: 2 }}>
-            <ThemeSelector
-              handleSelectTheme={handleSelectTheme}
-              mode={props.mode}
-            />
+            <ThemeSelector onSetMode={handleSetMode} mode={props.mode} />
             <Box>
               Copyright &copy;{" "}
               <Link color="inherit" href="/">
