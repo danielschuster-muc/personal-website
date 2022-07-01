@@ -10,6 +10,15 @@ const Layout = (props) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [mode, setMode] = useState("system");
 
+  useEffect(() => {
+    const storedMode = localStorage.getItem("mode");
+    if (storedMode) {
+      setMode(storedMode);
+    } else {
+      localStorage.setItem("mode", mode);
+    }
+  }, []);
+
   const theme = useMemo(() => {
     let themeMode = "dark";
     if (mode === "system") {
@@ -31,16 +40,8 @@ const Layout = (props) => {
     });
   }, [mode, prefersDarkMode]);
 
-  useEffect(() => {
-    const storedMode = localStorage.getItem("mode");
-    if (storedMode) {
-      setMode(storedMode);
-    } else {
-      localStorage.setItem("mode", mode);
-    }
-  }, []);
-
   const setModeHandler = (mode) => {
+    localStorage.setItem("mode", mode);
     setMode(mode);
   };
 

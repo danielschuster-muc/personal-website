@@ -1,6 +1,10 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 const ThemeSelector = (props) => {
+  const onChangeSelection = (event) => {
+    props.onSetMode(event.target.value);
+  };
+
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
       <InputLabel id="change-theme-select-label">Theme</InputLabel>
@@ -8,7 +12,7 @@ const ThemeSelector = (props) => {
         labelId="change-theme-select-label"
         id="change-theme-select"
         label="Theme"
-        onChange={props.handleSelectTheme}
+        onChange={onChangeSelection}
         value={props.mode}
       >
         <MenuItem value="light">Light Mode</MenuItem>
