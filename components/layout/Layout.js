@@ -52,7 +52,7 @@ const Layout = (props) => {
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
         <Navbar />
-        <Container component="main" maxWidth="xl" sx={{ flex: 1, mt: 3 }}>
+        <Container component="main" maxWidth="xl" sx={{ flex: 1, my: 5 }}>
           {props.children}
         </Container>
         <Footer mode={mode} onSetMode={setModeHandler} />
