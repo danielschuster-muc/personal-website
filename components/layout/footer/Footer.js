@@ -59,7 +59,7 @@ const Footer = (props) => {
           <Grid container borderBottom={1}>
             {footerData.map((row) => (
               <Grid item key={row.title} xs={12} sm={4}>
-                <Typography variant="h5">{row.title}</Typography>
+                <Typography variant="h4">{row.title}</Typography>
                 {row.content.map((column) => (
                   <Box key={column.name}>
                     <Link href={column.url}>{column.name}</Link>

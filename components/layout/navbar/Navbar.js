@@ -15,13 +15,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import DrawerComponent from "./DrawerComponent";
 
 const navItems = [
-  { title: "Home", link: "/" },
   { title: "About", link: "/#about" },
   { title: "Projects", link: "/#projects" },
   { title: "Skills", link: "/#skills" },
 ];
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {

@@ -14,7 +14,7 @@ const ExternalRedirect = (props) => {
       <Box>
         <Typography variant="h3">Hold on!</Typography>
         <Typography variant="h5">
-          You will be redirected to {props.title}
+          You will be redirected to {props.title}...
         </Typography>
       </Box>
     </>

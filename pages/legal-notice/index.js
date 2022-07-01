@@ -10,7 +10,7 @@ const LegalNotice = () => {
         description="The TMG requires German websites to give information about the publisher of a website."
       />
       <Card>
-        <Box px={3}>
+        <Box p={3}>
           <Typography variant="h4">Impressum</Typography>
           <Typography variant="subtitle1">
             The TMG requires German websites to give information about the
