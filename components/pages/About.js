@@ -1,4 +1,4 @@
-import { FormatQuote, GitHub, LinkedIn } from "@mui/icons-material";
+import { GitHub, LinkedIn } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -6,12 +6,10 @@ import {
   Grid,
   IconButton,
   Link,
-  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Typography,
 } from "@mui/material";
