@@ -31,10 +31,10 @@ const Layout = (props) => {
       palette: {
         mode: themeMode,
         primary: {
-          main: "#f9a825",
+          main: "#5D88E5",
         },
         secondary: {
-          main: "#1976d2",
+          main: "#AD144A",
         },
       },
     });
