@@ -1,8 +1,13 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { useTheme } from "next-themes";
 
-const ThemeSelector = (props) => {
+const ThemeSelector = () => {
+  const { theme, setTheme } = useTheme();
+
   const onChangeSelection = (event) => {
-    props.onSetMode(event.target.value);
+    const theme = event.target.value;
+    const allowedThemes = ["dark", "light", "system"];
+    if (allowedThemes.includes(theme)) setTheme(event.target.value);
   };
 
   return (
@@ -13,7 +18,8 @@ const ThemeSelector = (props) => {
         id="change-theme-select"
         label="Theme"
         onChange={onChangeSelection}
-        value={props.mode}
+        value={theme}
+        defaultValue="system"
       >
         <MenuItem value="light">Light Mode</MenuItem>
         <MenuItem value="dark">Dark Mode</MenuItem>

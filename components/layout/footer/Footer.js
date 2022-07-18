@@ -47,11 +47,7 @@ const footerData = [
   },
 ];
 
-const Footer = (props) => {
-  const handleSetMode = (mode) => {
-    props.onSetMode(mode);
-  };
-
+const Footer = () => {
   return (
     <AppBar position="static" component="footer" color="default">
       <Toolbar sx={{ my: 3 }}>
@@ -70,7 +66,7 @@ const Footer = (props) => {
           </Grid>
 
           <Box style={{ textAlign: "center" }} mt={{ xs: 2, sm: 2 }}>
-            <ThemeSelector onSetMode={handleSetMode} mode={props.mode} />
+            <ThemeSelector />
             <Box>
               Copyright &copy;{" "}
               <Link color="inherit" href="/">

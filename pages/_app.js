@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Head from "next/head";
 
 import Layout from "../components/layout/Layout";
@@ -5,6 +7,13 @@ import Layout from "../components/layout/Layout";
 import "../styles/global.scss";
 
 const App = ({ Component, pageProps }) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
       <Head>
