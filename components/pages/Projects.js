@@ -40,7 +40,7 @@ const Projects = () => {
       <Grid container spacing={2} sx={{ mt: 1 }} alignItems="stretch">
         {projects.map((project) => {
           return (
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} key={project.title}>
               <Card
                 style={{
                   height: "100%",
