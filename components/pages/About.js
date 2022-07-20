@@ -13,6 +13,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import Image from "next/image";
 
 const tableInformation = [
   {
@@ -45,12 +46,14 @@ const About = () => {
                 alignItems: "center",
               }}
             >
-              <Avatar
-                sx={{ width: 200, height: 200, mb: 2 }}
-                variant="rounded"
-                src="https://avatars.githubusercontent.com/danielschuster-muc"
-                alt="Daniel Schuster"
-              />
+              <Avatar sx={{ width: 200, height: 200, mb: 2 }} variant="rounded">
+                <Image
+                  layout="fill"
+                  objectFit="contain"
+                  src="https://avatars.githubusercontent.com/danielschuster-muc"
+                  alt="Image of Daniel Schuster"
+                />
+              </Avatar>
               <Typography variant="h5">Daniel Schuster</Typography>
               <Typography variant="subtitle1">Web Developer</Typography>
             </Box>
