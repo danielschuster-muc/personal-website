@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar component="nav" position="static">
+    <AppBar component="nav" position="static" color="default">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/">Daniel Schuster</Link>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Grid, AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Grid } from "@mui/material";
 import { Box, Container } from "@mui/system";
 
 import ThemeSelector from "./ThemeSelector";
@@ -11,11 +11,11 @@ const footerData = [
     content: [
       {
         name: "Home",
-        url: "/",
+        link: "/",
       },
       {
         name: "Legal Notice",
-        url: "/legal-notice",
+        link: "/legal-notice",
       },
     ],
   },
@@ -23,12 +23,12 @@ const footerData = [
     title: "Projects",
     content: [
       {
-        name: "Project 1",
-        url: "/",
+        name: "Personal Website",
+        link: "/",
       },
       {
-        name: "Project 2",
-        url: "/",
+        name: "Flazy",
+        link: "https://flazy.herokuapp.com",
       },
     ],
   },
@@ -37,11 +37,11 @@ const footerData = [
     content: [
       {
         name: "GitHub",
-        url: "/github",
+        link: "/github",
       },
       {
         name: "LinkedIn",
-        url: "/linkedin",
+        link: "/linkedin",
       },
     ],
   },
@@ -49,34 +49,36 @@ const footerData = [
 
 const Footer = () => {
   return (
-    <AppBar position="static" component="footer" color="default">
-      <Toolbar sx={{ my: 3 }}>
+    <AppBar component="footer" position="static" color="default">
+      <Box px={{ xs: 3, sm: 10 }} py={{ xs: 4, sm: 10 }}>
         <Container maxWidth="xl">
-          <Grid container borderBottom={1}>
+          <Grid container spacing={5}>
             {footerData.map((row) => (
               <Grid item key={row.title} xs={12} sm={4}>
-                <Typography variant="h4">{row.title}</Typography>
+                <Box borderBottom={1}>{row.title}</Box>
                 {row.content.map((column) => (
-                  <Box key={column.name}>
-                    <Link href={column.url}>{column.name}</Link>
+                  <Box key={column.name} pt={1}>
+                    <Link href={column.link}>{column.name}</Link>
                   </Box>
                 ))}
               </Grid>
             ))}
           </Grid>
 
-          <Box style={{ textAlign: "center" }} mt={{ xs: 2, sm: 2 }}>
-            <ThemeSelector />
+          <Box
+            style={{ textAlign: "center" }}
+            pt={{ xs: 3, sm: 5 }}
+            pb={{ xs: 4, sm: 0 }}
+          >
+            <Box pb={{ xs: 3, sm: 5 }}>
+              <ThemeSelector />
+            </Box>
             <Box>
-              Copyright &copy;{" "}
-              <Link color="inherit" href="/">
-                Daniel Schuster
-              </Link>{" "}
-              {new Date().getFullYear()}
+              Copyright &copy; Daniel Schuster {new Date().getFullYear()}
             </Box>
           </Box>
         </Container>
-      </Toolbar>
+      </Box>
     </AppBar>
   );
 };
