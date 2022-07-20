@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
@@ -28,7 +29,7 @@ const projects = [
   {
     title: "Upcoming Projects",
     description: "Further projects are planned...",
-    image: "https://via.placeholder.com/150",
+    image: "/images/question_mark.png",
     link: "",
   },
 ];
@@ -40,7 +41,7 @@ const Projects = () => {
       <Grid container spacing={2} sx={{ mt: 1 }} alignItems="stretch">
         {projects.map((project) => {
           return (
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} key={project.title}>
               <Card
                 style={{
                   height: "100%",
@@ -49,11 +50,16 @@ const Projects = () => {
                   justifyContent: "space-between",
                 }}
               >
-                <CardMedia
-                  component="img"
-                  alt={`Image of ${project.title}`}
-                  image={project.image}
-                />
+                <CardMedia>
+                  <Image
+                    src={project.image}
+                    alt={`Image of ${project.title}`}
+                    width="100%"
+                    height="100%"
+                    layout="responsive"
+                    objectFit="contain"
+                  />
+                </CardMedia>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     {project.title}
