@@ -23,6 +23,6 @@
     "start": "next start"
   },
   "devDependencies": {
-    "sass": "^1.5.1"
+    "sass": "^1.53.0"
   }
 }
