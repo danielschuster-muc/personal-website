@@ -49,7 +49,7 @@ const footerData = [
 
 const Footer = () => {
   return (
-    <AppBar component="footer" position="static">
+    <AppBar component="footer" position="static" color="default">
       <Box px={{ xs: 3, sm: 10 }} py={{ xs: 4, sm: 10 }}>
         <Container maxWidth="xl">
           <Grid container spacing={5}>
