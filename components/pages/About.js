@@ -52,6 +52,7 @@ const About = () => {
                   objectFit="contain"
                   src="https://avatars.githubusercontent.com/danielschuster-muc"
                   alt="Image of Daniel Schuster"
+                  priority="true"
                 />
               </Avatar>
               <Typography variant="h5">Daniel Schuster</Typography>
