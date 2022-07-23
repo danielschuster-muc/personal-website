@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import Head from "next/head";
 
-import "../styles/global.scss";
+import "../styles/global.css";
 import Layout from "../components/layout/Layout";
 
 const App = ({ Component, pageProps }) => {
