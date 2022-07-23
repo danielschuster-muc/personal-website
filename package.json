@@ -21,8 +21,5 @@
     "build": "next build && npm run postbuild",
     "postbuild": "next-sitemap",
     "start": "next start"
-  },
-  "devDependencies": {
-    "sass": "^1.53.0"
   }
 }
