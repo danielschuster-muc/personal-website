@@ -16,7 +16,7 @@ const projects = [
     title: "Personal Website",
     description: "Website with information about me, my projects and skills.",
     image: "https://avatars.githubusercontent.com/danielschuster-muc",
-    link: "https://danielschuster.me",
+    link: "/",
     source: "https://github.com/danielschuster-muc/personal-website",
   },
   {
@@ -36,7 +36,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <Box id="projects" sx={{ my: 5 }}>
+    <Box id="projects" sx={{ my: 10 }}>
       <Typography variant="h3">My Projects</Typography>
       <Grid container spacing={2} sx={{ mt: 1 }} alignItems="stretch">
         {projects.map((project) => {

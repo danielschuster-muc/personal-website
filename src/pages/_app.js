@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 import Head from "next/head";
 
-import Layout from "../components/layout/Layout";
-
 import "../styles/global.scss";
+import Layout from "../components/layout/Layout";
 
 const App = ({ Component, pageProps }) => {
   const [mounted, setMounted] = useState(false);

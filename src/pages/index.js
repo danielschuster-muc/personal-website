@@ -1,6 +1,7 @@
 import Meta from "../components/Meta";
 import About from "../components/pages/About";
 import Projects from "../components/pages/Projects";
+import Skills from "../components/pages/Skills";
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Meta />
       <About />
       <Projects />
+      <Skills />
     </>
   );
 };
