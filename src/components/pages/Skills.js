@@ -121,6 +121,7 @@ const Skills = () => {
                     width="100%"
                     height="100%"
                     layout="responsive"
+                    alt={skill.title}
                   />
                 </CardMedia>
                 <CardHeader subheader={skill.title} />
